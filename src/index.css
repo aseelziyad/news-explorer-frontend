@@ -1,0 +1,27 @@
+@import url(../src/vendor/fonts/roboto/roboto.css);
+@import url(../src/vendor/fonts/inter/inter.css);
+@import url(../src/compnents/App/app.css);
+
+@import url(../src/compnents/Header/header.css);
+
+@import url(../src/compnents/Navigation/navigation.css);
+@import url(../src/compnents/Footer/footer.css);
+@import url(../src/compnents/SearchForm/search-form.css);
+@import url(../src/compnents/About/about.css);
+
+@import url(../src/compnents/Preloader/preloader.css);
+@import url(../src/compnents/PreloaderNotFound/preloadernotfound.css);
+
+@import url(../src/compnents/Main/Main.css);
+@import url(../src/compnents/SavedNewsHeader/SavedNewsHeader.css);
+@import url(../src/compnents/SavedNews/SavedNews.css);
+@import url(../src/compnents/SearchResults/searchresults.css);
+@import url(../src/compnents/NewsCard/newsCards.css);
+@import url(../src/compnents/NewsCardList/newscardlist.css);
+@import url(../src/compnents/PopupWithForm/popup.css);
+
+@import url(../src/compnents/PopupMenu/popupMenu.css);
+@import url(../src/compnents/PopupRegisterSuccess/PopupRegisterSuccess.css);
+/* @import url(../src/compnents/popup/__sign-image/popup__sign-image.css);
+@import url(../src/compnents/popup/__sign-message/popup__sign-message.css); */
+

@@ -1,0 +1,202 @@
+.newsCard {
+  min-height: 576px;
+  max-width: 400px;
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  background-color: white;
+  margin: 0;
+}
+
+.newsCard__title {
+  font-family: 'Roboto Slab', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 26px;
+  line-height: 30px;
+  color: #1a1b22;
+  margin: 0 24px 16px;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+
+.newsCard__text {
+  max-height: 110px;
+  font-family: Roboto, Arial, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 22px;
+  color: #1a1b22;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+  overflow: hidden;
+  margin: 0 24px;
+}
+
+
+
+/* @media screen and (max-width: 900px) {
+  .newsCard__text {
+    -webkit-line-clamp: 3;
+  }
+} */
+
+.newsCard__source {
+  position: absolute;
+  bottom: 24px;
+  margin: 0 24px;
+  font-family: Roboto Slab, Arial, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  color: #b6bcbf;
+}
+
+
+.newsCard__message {
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  position: absolute;
+  top: -3px;
+  right: 55px;
+  min-width: 107px;
+  min-height: 40px;
+  background-color: white;
+  border: none;
+  font-size: 12px;
+  line-height: 14px;
+  border-radius: 10px;
+  padding: 0 25px 0;
+}
+
+.newsCard__image {
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  color: black;
+  text-align: center;
+  width: 100%;
+}
+
+.newsCard__date {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 24px;
+  color: #b6bcbf;
+  margin: 20px 24px 12px;
+}
+
+.newsCard__keyword {
+   display: flex;
+  align-items: center;
+   padding: 0 22px 0;
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
+  position: absolute;
+  top: -7px;
+  left: 4px;
+  height: 40px;
+  background-color: white;
+  border: none;
+  border-radius: 10px;
+}
+
+.newsCard__article {
+  padding: 20px 24px 24px;
+}
+
+.newsCard__button {
+  position: absolute;
+  top: 9px;
+  right: 9px;
+  min-width: 40px;
+  min-height: 40px;
+  background-color: white;
+  border: none;
+  border-radius: 10px;
+  padding-top: 5px;
+}
+
+.newsCard__button:hover {
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1280px) {
+  .newsCard__text {
+    -webkit-line-clamp: 4;
+  }
+    .newsCard__source {
+    margin: 12px 24px 0 ;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .newsCard {
+    min-height: 420px;
+  }
+  .newsCard__date {
+    margin: 16px 16px 12px;
+  }
+    .newsCard__title {
+    font-size: 22px;
+    line-height: 24px;
+    margin: 0 16px 10px;
+  }
+   .newsCard__text {
+    -webkit-line-clamp: 3;
+    margin: 10px 16px 12px;
+  }
+
+    .newsCard__image {
+   height: 150px;
+   width: 100%;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .newsCard {
+    height: 440px;
+    max-width: 288px;
+  }
+
+.newsCard__title {
+    -webkit-line-clamp: 2;
+  }
+.newsCard__text {
+    -webkit-line-clamp: 4;
+  }
+
+  .newsCard__source {
+    bottom: 16px;
+  }
+
+   .newsCard__image {
+    height: 196px;
+  }
+
+}

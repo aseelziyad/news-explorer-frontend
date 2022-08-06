@@ -1,0 +1,121 @@
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 30px 0 26px 0;
+}
+
+.navigation__link {
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  color: #ffffff;
+  text-decoration: none;
+  background-color: transparent;
+  border-color: #ffffff;
+}
+.navigation__link:first-child {
+  margin-right: 15px;
+}
+.navigation__link-clicked {
+  padding: 28px  0;
+  border-bottom: 2px white solid;
+}
+
+.navigation__link_saved {
+  color: #1a1b22;
+}
+
+.navigation__link-clicked_saved {
+  padding: 28px 0;
+  border-bottom: 2px black solid;
+}
+
+.navigation__button {
+  width: 176px;
+  height: 48px;
+  color: #ffffff;
+  border-radius: 100px;
+  margin: 19px 104px 13px 42px;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+}
+
+.navigation__button:hover {
+  cursor: pointer;
+}
+
+.navigation__button-text {
+  margin: auto;
+  font-size: 16px;
+  line-height: 24px;
+  color: #ffffff;
+}
+.navigation__button-text_saved {
+  color: #1a1b22;
+}
+
+.navigation__button-logo {
+  margin: 10px 25px 0 0;
+  width: 17.5px;
+  height: 16px;
+  background-image: url('/src/images/sign-out-white.svg');
+}
+.navigation__button-log_saved {
+  width: 17.5px;
+  height: 16px;
+  background-image: url('/src/images/sign-out-black.svg');
+}
+.navigation__menu {
+  display: none;
+}
+
+.navigation__button_signin {
+  min-width: 176px;
+}
+@media screen and (min-width: 900px) {
+ .navigation__link-clicked_saved {
+  padding: 25px 0;
+}
+ .navigation__link-clicked {
+  padding: 25px 0;
+}
+}
+
+@media screen and (max-width: 900px) {
+  .navigation {
+    margin: 20px 0 22px 0;
+  }
+
+  .navigation__button {
+    width: 152px;
+    margin: 14px 40px 12px 16px;
+  }
+
+}
+@media screen and (max-width: 577px) {
+   .navigation__link-clicked_saved {
+  padding: 16px 0;
+}
+}
+@media screen and (max-width: 500px) {
+   .navigation {
+    margin: auto 20px;
+    ;
+  }
+
+  .navigation__menu {
+    display: contents;
+    cursor: pointer;
+    color: #ffffff;
+    margin: 30 24px 24px 24px;
+  }
+
+  .navigation__link {
+    display: none;
+  }
+  
+}

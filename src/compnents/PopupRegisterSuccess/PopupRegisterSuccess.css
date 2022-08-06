@@ -1,0 +1,58 @@
+.popup__registered {
+  max-width: 430px;
+  z-index: 10;
+  width: 100%;
+  max-width: 458px;
+  background: #ffffff;
+  border-radius: 16px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+}
+
+.popup__registered-title {
+width: 315px;
+height: 56px;
+font-family: 'Roboto';
+font-Weight: 900;
+font-size: 24px;
+Line-height: 28px;
+color: #000000;
+}
+
+.popup__close-button {
+  width: 20px;
+  height: 20px;
+  color: #ffffff;
+  transform: rotate(90deg);
+  /* transform: matrix(-1, 0, 0, 1, 0, 0); */
+  background-image: url('/src/images/close-icon.svg');
+  background-size: 55px 55px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: -32px;
+  right: -24px;
+  padding: 0;
+  z-index: 2;
+}
+
+.popup__registered-button {
+    width: 228px;
+height: 18px;
+left: 541px;
+top: 392px;
+
+    font-family: 'Inter', sans-serif;
+font-style: normal;
+font-weight: 400;
+font-size: 18px;
+line-height: 22px;
+color: #2F71E5;
+}
