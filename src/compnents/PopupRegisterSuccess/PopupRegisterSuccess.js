@@ -3,7 +3,7 @@ import PopupWithForm from '../PopupWithForm/PopupWithForm';
 
 const PopupRegistered = (props) => {
 
-  const { name, isOpen, onClose, onSubmit, buttonText } = props;
+  const {  isOpen, onClose, onSubmit, switchPopups } = props;
   
     const handleRedircet = (event) => {
       event.preventDefault();
@@ -34,13 +34,17 @@ const PopupRegistered = (props) => {
     // );
 
   return (
-    <PopupWithForm
-      title='Registration successfully completed!'
-      isOpen={isOpen}
-      onClose={onClose}
-      onSubmit={handleRedircet}
-      buttonText='Sign in'
-    ></PopupWithForm>
+        <PopupWithForm
+          name='Register Success Popup'
+          title='Registration successfully completed!'
+          isOpen={isOpen}
+          onClose={onClose}
+          onSubmit={handleRedircet}
+        >
+          <span className='popup__link-success' onClick={switchPopups}>
+            Sign up
+          </span>
+        </PopupWithForm>
   );
 }
 

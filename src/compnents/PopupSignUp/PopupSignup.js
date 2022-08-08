@@ -54,6 +54,15 @@ const PopupSignup = (props) => {
         />
       </label>
       <span className='popup__error' id='input-username-error'></span>
+      <button type='submit' className='popup__submit-button'>
+        Sign up
+      </button>
+      <p className='popup__text'>
+        or{' '}
+        <span className='popup__link' onClick={switchPopups}>
+          Sign in
+        </span>
+      </p>
     </PopupWithForm>
   );
 };

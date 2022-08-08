@@ -11,6 +11,7 @@
 }
 
 .main__container {
+  max-width: 100%;
    margin: 160px auto 88px;
 }
 
@@ -68,6 +69,7 @@
     padding: 0 16px 0;
   }
   .main__container {
+
     display: flex;
     flex-direction: column;
     margin: 86px auto 122px;

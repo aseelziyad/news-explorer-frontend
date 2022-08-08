@@ -98,15 +98,12 @@ export default function App() {
   
   return (
     <div className='App'>
-      {/* <Switch> */}
-      {/* <Route path='/' element={<Main />} /> */}
       <Header
         onLoginClick={handleLoginClick}
         onMenuClick={handleNavigationMenu}
         isMenuOpen={isMenuOpen}
         isLoggedIn={isLoggedIn}
         setIsLoggedIn={setIsLoggedIn}
-        // onLogoutClick={handleLogout}
       />
       <Routes>
         <Route path='/' element={<Main />} />
@@ -131,10 +128,10 @@ export default function App() {
         onSubmit={handleRegisterSubmit}
       />
       <PopupRegisterSuccess
-        name='RegisterPopup'
+        name='RegisterSuccessPopup'
         isOpen={isRegisterSuccessPopupOpen}
         onClose={closeAllPopups}
-        onSubmit={handleRedircetLogin}
+        switchPopups={handleRedircetLogin}
       />
       <PopupSignin
         isOpen={isLoginPopupOpen}
@@ -146,6 +143,7 @@ export default function App() {
         isOpen={isMenuOpen}
         onClose={closeAllPopups}
         onLoginClick={handleRedircetLogin}
+        onLogoutClick={closeAllPopups}
       />
       {/* <Route path='/saved-news' element={<SavedNews />} /> */}
       {/* </Switch> */}

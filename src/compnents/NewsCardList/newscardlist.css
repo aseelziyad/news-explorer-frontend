@@ -2,19 +2,9 @@
   display: flex;
   flex-direction: column;
   background-color: #F5F6F7;
-  margin: auto 104px;
+  margin: auto 104px 62px 104px;
 
 }
-
-/* .newsCard-list__title {
-  font-family: 'Roboto Slab', sans-serif;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 40px;
-  line-height: 46px;
-  color: #1A1B22;
-  margin: 80px 104px 64px 0;
-} */
 
 
 
@@ -25,28 +15,6 @@
   grid-gap: 16px;
   max-width: 100%;
 }
-
-
-/* .newsCard-list__button {
-  width: 288px;
-  height: 64px;
-  background: white;
-  border: none;
-  border-radius: 80px;
-  font-family: 'Roboto', sans-serif;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 24px;
-  text-align: center;
-  color: #1A1B22;
-  margin: 64px auto 80px;
-} */
-
-/* .newsCard-list__button:hover {
-  cursor: pointer;
-  background: #E8E8E8;
-} */
 
 
 @media screen and (max-width: 900px) {
@@ -71,7 +39,7 @@
 
 @media screen and (max-width: 760px) {
   .newsCard-list {
-    margin: auto;
+    margin: auto auto 32px auto;
   }
 }
 @media screen and (max-width: 650px) {

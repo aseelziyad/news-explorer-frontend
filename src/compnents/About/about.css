@@ -5,6 +5,10 @@
   height: 624px;
 }
 
+.about__container {
+  max-width: 100%;
+}
+
 .about__title {
   font-family: 'Roboto Slab', sans-serif;
   font-style: normal;
@@ -36,12 +40,8 @@
   }
 
   .about__title {
-    /* width: 424px; */
     font-size: 30px;
     line-height: 40px;
-  }
-  .about__subtitle {
-    /* width: 424px; */
   }
   .about__image {
     width: 232px;
@@ -72,7 +72,7 @@
     margin: 16px;
   }
   .about__image {
-    width: 272px;
+    max-width: 272px;
     height: 272px;
     margin: 32px 24px 24px;
     /* margin-bottom: 0; */
