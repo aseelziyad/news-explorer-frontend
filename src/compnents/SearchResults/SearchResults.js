@@ -1,12 +1,14 @@
 import NewsCardList from '../NewsCardList/NewCardList';
-import PreloaderNotFound from '../PreloaderNotFound/PreloaderNotFound';
 
-export default function SearchResults() {
+const SearchResults = (props) => {
+  const { resultSearch } = props;
   return (
     <div className='search-results'>
       <h2 className='search-results__title'>Search results</h2>
-      <NewsCardList />
+      <resultSearch />
       <button className='search-results__button'>Show more</button>
     </div>
   );
 }
+
+export default SearchResults;

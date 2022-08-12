@@ -14,6 +14,7 @@ export default function NewsCard({
   cardText,
   cardSource,
   cardKeyword,
+  isLoggedIn,
 }) {
   const [isVisiable, setIsVisiable] = useState(false);
   const [isBookmarked, setIsBookmarked] = useState(false);
@@ -29,18 +30,13 @@ export default function NewsCard({
       {pathname === '/saved-news' && (
         <p className='newsCard__keyword'>{cardKeyword}</p>
       )}
-      
-      {isVisiable && (
-        <p className='newsCard__message'>
-          {pathname === '/' ? 'Sign in to save articles' : 'Remove from saved'}
-        </p>
-      )}
+
       {pathname === '/' ? (
         <button
           className='newsCard__button'
           onMouseEnter={() => setIsVisiable(true)}
           onMouseLeave={() => setIsVisiable(false)}
-          onClick={handleBookmarked}
+          // onClick={handleBookmarked}
         >
           {isBookmarked ? (
             <img src={bookmarkFilled} alt='bookmark' />
@@ -56,6 +52,12 @@ export default function NewsCard({
         >
           <img src={isVisiable ? trashBold : trash} alt='bookmark' />
         </button>
+      )}
+
+      {isVisiable && (
+        <p className='newsCard__message'>
+          {pathname === '/' ? 'Sign in to save articles' : 'Remove from saved'}
+        </p>
       )}
       <p className='newsCard__date'>{cardDate}</p>
       <h3 className='newsCard__title'>{cardTitle}</h3>

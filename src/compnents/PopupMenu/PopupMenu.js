@@ -7,22 +7,7 @@ export default function PopupMenu(props) {
   const { isOpen, onClose, isLoggedIn, onLoginClick, onLogoutClick } = props;
   const { pathname } = useLocation();
 
-  // const handleClose = (event) => {
-  //   onClose(event);
-  // };
-  // const handleLogout= (event) => {
-  //   onLoginClick(event);
-  // };
-
-
   return (
-    //   <PopupWithForm
-    //     isOpen={isOpen}
-    //     onClose={onClose}
-    //     buttonText='Sign in'
-    //     name='MenuPopup'
-    //     // onSubmit={handleSubmit}
-    //   >
     <div className={`popup__menu ${isOpen && 'popup__menu_open'}`}>
       <button
         type='button'
@@ -30,11 +15,16 @@ export default function PopupMenu(props) {
         onClick={onClose}
       ></button>
       <nav>
-        {pathname === '/' && isLoggedIn ? (
+        {!isLoggedIn ? (
+          <Link to='/' className='popup__menu-link'>
+            Home
+          </Link>
+        ) : (
           <Link to='/saved-news' className='popup__menu-link'>
             Saved articles
           </Link>
-        ) : (
+        )}
+        {pathname === '/saved-news' && (
           <Link to='/' className='popup__menu-link'>
             Home
           </Link>
@@ -52,12 +42,11 @@ export default function PopupMenu(props) {
         <button
           type='button'
           className='popup__menu_submit-button'
-          onLogout={onLogoutClick}
+          onClick={onLogoutClick}
         >
-          Aseel
+          Elise
         </button>
       )}
     </div>
-    // </PopupWithForm>
-  );
-}
+  );};
+ 

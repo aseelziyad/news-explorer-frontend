@@ -1,11 +1,39 @@
-import React from 'react';
 import About from '../About/About';
-import NewsCardList from '../NewsCardList/NewCardList';
 import SearchForm from '../SearchForm/SearchForm';
-import Preloader from '../Preloader/Preloader';
 import SearchResults from '../SearchResults/SearchResults';
-import PreloaderNotFound from '../PreloaderNotFound/PreloaderNotFound';
+import ResultsNotFound from '../ResultsNotFound/ResultsNotFound';
+import Preloader from '../Preloader/Preloader';
+
+import NewsCardList from '../NewsCardList/NewCardList';
+
+import { useState } from 'react';
+
+const resultSearch = NewsCardList;
+
 export default function Main() {
+  const [isLoading, setIsLoading] = useState(false);
+  const [isSearchResult, setIsSearchResult] = useState(false);
+  const [isNotFound, setIsNotFound] = useState(false);
+
+  const handleSearchClick = (event) => {
+    event.preventDefault();
+    setIsLoading(true);
+    setIsSearchResult(false);
+    setIsNotFound(false);
+
+    // TODO API call -> get request (retrieve search result)
+    // const resultSearch = retrieveSearchResult() -> returns list
+
+    setTimeout(() => {
+      if (resultSearch) {
+        setIsSearchResult(true);
+      } else {
+        setIsNotFound(true);
+      }
+      setIsLoading(false);
+    }, 2000);
+  };
+
   return (
     <>
       <main className='main'>
@@ -16,13 +44,12 @@ export default function Main() {
             account.
           </p>
         </div>
-        <SearchForm />
+        <SearchForm onClick={handleSearchClick}></SearchForm>
       </main>
-      <Preloader />
-      <SearchResults />
-      <PreloaderNotFound />
+      {isLoading && <Preloader />}
+      {isSearchResult && <SearchResults resultSearch={resultSearch} />}
+      {isNotFound && <ResultsNotFound />}
       <About />
     </>
   );
-
 }
