@@ -4,17 +4,14 @@ import SearchResults from '../SearchResults/SearchResults';
 import ResultsNotFound from '../ResultsNotFound/ResultsNotFound';
 import Preloader from '../Preloader/Preloader';
 
-import NewsCardList from '../NewsCardList/NewCardList';
-
+import NewsCardsList from '../NewsCardList/NewsCardList';
 import { useState } from 'react';
-
-const resultSearch = NewsCardList;
 
 export default function Main() {
   const [isLoading, setIsLoading] = useState(false);
-  const [isSearchResult, setIsSearchResult] = useState(false);
+   const [isSearchResult, setIsSearchResult] = useState(false);
   const [isNotFound, setIsNotFound] = useState(false);
-
+  const [searchResultList, setSearchResultList] = useState([]);
   const handleSearchClick = (event) => {
     event.preventDefault();
     setIsLoading(true);
@@ -22,16 +19,19 @@ export default function Main() {
     setIsNotFound(false);
 
     // TODO API call -> get request (retrieve search result)
+    const resultSearch = NewsCardsList();
+    // const resultSearch = [];
     // const resultSearch = retrieveSearchResult() -> returns list
 
     setTimeout(() => {
-      if (resultSearch) {
-        setIsSearchResult(true);
+      if (resultSearch.length > 0) {
+        setIsSearchResult(true)
+        setSearchResultList(resultSearch);
       } else {
         setIsNotFound(true);
       }
       setIsLoading(false);
-    }, 2000);
+    }, 500);
   };
 
   return (
@@ -47,7 +47,10 @@ export default function Main() {
         <SearchForm onClick={handleSearchClick}></SearchForm>
       </main>
       {isLoading && <Preloader />}
-      {isSearchResult && <SearchResults resultSearch={resultSearch} />}
+      {setIsSearchResult && <SearchResults resultSearch={searchResultList} />}
+      {/* {searchResultList.length > 0 && (
+        <SearchResults resultSearch={searchResultList} />
+      )} */}
       {isNotFound && <ResultsNotFound />}
       <About />
     </>
