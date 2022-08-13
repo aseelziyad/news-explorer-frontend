@@ -4,11 +4,11 @@ const SearchResults = ({ resultSearch }) => {
   return (
     <div className='search-results'>
       <h2 className='search-results__title'>Search results</h2>
-      <section className='newsCard-list'>
-        <div className='newsCard-list__cards'>
+      <ul className='news-card-list'>
+        <li className='news-card-list__cards'>
           {resultSearch.length > 0 &&
             resultSearch.map((newsCard) => (
-              <NewsCard
+              <NewsCard key={newsCard.id}
                 cardImage={newsCard.cardImage}
                 cardKeyword={newsCard.cardKeyword}
                 cardDate={newsCard.cardDate}
@@ -17,8 +17,8 @@ const SearchResults = ({ resultSearch }) => {
                 cardSource={newsCard.cardSource}
               />
             ))}
-        </div>
-      </section>
+        </li>
+      </ul>
       <button className='search-results__button'>Show more</button>
     </div>
   );

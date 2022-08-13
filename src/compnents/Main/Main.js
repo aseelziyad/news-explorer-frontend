@@ -19,7 +19,7 @@ export default function Main() {
     setIsNotFound(false);
 
     // TODO API call -> get request (retrieve search result)
-    const resultSearch = NewsCardsList();
+    const resultSearch = NewsCardsList;
     // const resultSearch = [];
     // const resultSearch = retrieveSearchResult() -> returns list
 

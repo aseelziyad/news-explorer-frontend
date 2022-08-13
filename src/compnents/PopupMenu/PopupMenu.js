@@ -1,7 +1,6 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import PopupWithForm from '../PopupWithForm/PopupWithForm';
 
 export default function PopupMenu(props) {
   const { isOpen, onClose, isLoggedIn, onLoginClick, onLogoutClick } = props;
@@ -11,7 +10,7 @@ export default function PopupMenu(props) {
     <div className={`popup__menu ${isOpen && 'popup__menu_open'}`}>
       <button
         type='button'
-        className='popup__menu_close-button'
+        className='popup__menu-close-button'
         onClick={onClose}
       ></button>
       <nav>
@@ -33,7 +32,7 @@ export default function PopupMenu(props) {
       {!isLoggedIn ? (
         <button
           type='submit'
-          className='popup__menu_submit-button'
+          className='popup__menu-submit-button'
           onClick={onLoginClick}
         >
           Sign in
@@ -41,7 +40,7 @@ export default function PopupMenu(props) {
       ) : (
         <button
           type='button'
-          className='popup__menu_submit-button'
+          className='popup__menu-submit-button'
           onClick={onLogoutClick}
         >
           Elise

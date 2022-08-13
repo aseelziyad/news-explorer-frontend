@@ -1,5 +1,5 @@
 import React from 'react';
-import { CurrentUserContext } from '../../contexts/CurrentUserContext';
+// import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import logoutIcon from '../../images/sign-out-white.svg';
 import logoutIconBlack from '../../images/sign-out-black.svg';
 import menu from '../../images/menu.svg';
@@ -32,7 +32,7 @@ const { pathname } = useLocation();
       <Link
         to='/'
         className={`navigation__link ${
-          pathname === '/' && 'navigation__link-clicked'
+          pathname === '/' && 'navigation__link_clicked'
         } ${pathname === '/saved-news' && 'navigation__link_saved'}
               
             `}

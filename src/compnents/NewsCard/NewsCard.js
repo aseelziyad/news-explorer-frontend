@@ -25,18 +25,18 @@ export default function NewsCard({
   }
 
   return (
-    <div className='newsCard'>
-      <img className='newsCard__image' src={cardImage} alt={cardTitle} />
+    <article className='news-card'>
+      <img className='news-card__image' src={cardImage} alt={cardTitle} />
       {pathname === '/saved-news' && (
-        <p className='newsCard__keyword'>{cardKeyword}</p>
+        <p className='news-card__keyword'>{cardKeyword}</p>
       )}
 
       {pathname === '/' ? (
         <button
-          className='newsCard__button'
+          className='news-card__button'
           onMouseEnter={() => setIsVisiable(true)}
           onMouseLeave={() => setIsVisiable(false)}
-          // onClick={handleBookmarked}
+          onClick={handleBookmarked}
         >
           {isBookmarked ? (
             <img src={bookmarkFilled} alt='bookmark' />
@@ -46,7 +46,7 @@ export default function NewsCard({
         </button>
       ) : (
         <button
-          className='newsCard__button'
+          className='news-card__button'
           onMouseEnter={() => setIsVisiable(true)}
           onMouseLeave={() => setIsVisiable(false)}
         >
@@ -55,16 +55,16 @@ export default function NewsCard({
       )}
 
       {isVisiable && (
-        <p className='newsCard__message'>
+        <p className='news-card__message'>
           {pathname === '/' ? 'Sign in to save articles' : 'Remove from saved'}
         </p>
       )}
-      <p className='newsCard__date'>{cardDate}</p>
-      <h3 className='newsCard__title'>{cardTitle}</h3>
-      <p className='newsCard__text'>{cardText}</p>
-      <a herf='/' target='_blank' className='newsCard__source'>
+      <p className='news-card__date'>{cardDate}</p>
+      <h3 className='news-card__title'>{cardTitle}</h3>
+      <p className='news-card__text'>{cardText}</p>
+      <a herf='/' target='_blank' className='news-card__source'>
         {cardSource}
       </a>
-    </div>
+    </article>
   );
 }

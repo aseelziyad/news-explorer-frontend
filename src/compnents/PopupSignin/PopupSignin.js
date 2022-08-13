@@ -24,7 +24,7 @@ const PopupSignin = (props) => {
         type='email'
         className='popup__input'
         name='email'
-        id='input-email'
+        id='inputemail'
         placeholder='Enter email'
         required
       />
@@ -36,11 +36,11 @@ const PopupSignin = (props) => {
         type='password'
         className='popup__input'
         name='password'
-        id='input-password'
+        id='inputpassword'
         placeholder='Enter password'
         required
       />
-      <span id='input-email-error' className='popup__error'></span>
+      <span id='input-password-error' className='popup__error'></span>
       <button type='submit' className='popup__submit-button'>
         Sign in
       </button>

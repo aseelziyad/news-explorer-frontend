@@ -20,7 +20,7 @@
 .navigation__link:first-child {
   margin-right: 15px;
 }
-.navigation__link-clicked {
+.navigation__link_clicked {
   padding: 28px 0;
   border-bottom: 2px white solid;
 }
@@ -81,7 +81,7 @@
   .navigation__link-clicked_saved {
     padding: 25px 0;
   }
-  .navigation__link-clicked {
+  .navigation__link_clicked {
     padding: 25px 0;
   }
 }

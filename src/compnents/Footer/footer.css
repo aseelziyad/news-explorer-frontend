@@ -80,7 +80,7 @@
   .footer {
     flex-direction: column-reverse;
     height: 176px;
-    margin-top: 16px;
+    margin-top: 20px;
   }
   .footer__copyright {
     margin: 38px 16px 22px;
