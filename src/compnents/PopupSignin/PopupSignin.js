@@ -15,7 +15,7 @@ const PopupSignin = (props) => {
       onClose={onClose}
       buttonText='Sign in'
       title='Sign in'
-      name='SignIn'
+      name='sign-in'
       onSubmit={handleSubmit}
       switchPopups={switchPopups}
     >

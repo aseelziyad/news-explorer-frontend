@@ -15,7 +15,7 @@ const PopupSignup = (props) => {
       onSubmit={handleSubmit}
       buttonText='Sign up'
       title='Sign up'
-      name='SignUp'
+      name='sign-up'
       switchPopups={switchPopups}
     >
       <label className='popup__field'>
