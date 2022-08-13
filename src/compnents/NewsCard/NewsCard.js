@@ -25,7 +25,7 @@ export default function NewsCard({
   }
 
   return (
-    <article className='news-card'>
+    <li className='news-card'>
       <img className='news-card__image' src={cardImage} alt={cardTitle} />
       {pathname === '/saved-news' && (
         <p className='news-card__keyword'>{cardKeyword}</p>
@@ -64,7 +64,7 @@ export default function NewsCard({
       <p className='news-card__text'>{cardText}</p>
       <a herf='/' target='_blank' className='news-card__source'>
         {cardSource}
-      </a>
-    </article>
+        </a>
+    </li>
   );
 }

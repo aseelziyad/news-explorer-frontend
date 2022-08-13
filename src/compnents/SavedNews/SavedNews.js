@@ -8,7 +8,6 @@ export default function SavedNews(props) {
     <section className='saved-news'>
       <SavedNewsHeader />
       <ul className='news-card-list'>
-        <li className='news-card-list__cards'>
           {resultSearch.length > 0 &&
             resultSearch.map((newsCard) => (
               <NewsCard key={newsCard.id}
@@ -20,7 +19,6 @@ export default function SavedNews(props) {
                 cardSource={newsCard.cardSource}
               />
             ))}
-        </li>
       </ul>
     </section>
   );

@@ -12,7 +12,7 @@ const PopupRegistered = (props) => {
 
   return (
         <PopupWithForm
-          name='register-success'
+          name='register_success'
           title='Registration successfully completed!'
           isOpen={isOpen}
           onClose={onClose}

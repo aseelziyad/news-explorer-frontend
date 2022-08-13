@@ -1,22 +1,28 @@
 .news-card-list {
-  display: flex;
-  flex-direction: column;
+  /* display: flex;
+  flex-direction: column; */
+    display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+  grid-gap: 16px;
+  max-width: 100%;
   background-color: #f5f6f7;
   margin: auto 104px 62px 104px;
   padding: 0;
 }
 
-.news-card-list__cards {
+/* .news-card-list__cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(1, 1fr);
   grid-gap: 16px;
   max-width: 100%;
-}
+} */
 
 @media screen and (max-width: 900px) {
   .news-card-list {
     margin: auto 40px;
+    grid-gap: 8px;
   }
 
   .news-card-list__title {
@@ -25,9 +31,9 @@
     margin: 40px 40px 32px 0;
   }
 
-  .news-card-list__cards {
+  /* .news-card-list__cards {
     grid-gap: 8px;
-  }
+  } */
 
   .news-card-list__button {
     margin: 32px auto 40px;
@@ -42,10 +48,11 @@
 @media screen and (max-width: 650px) {
   .news-card-list {
     margin: auto 16px 13px;
-  }
-  .news-card-list__cards {
     grid-template-columns: repeat(2, 1fr);
   }
+  /* .news-card-list__cards {
+    grid-template-columns: repeat(2, 1fr);
+  } */
 
   .news-card-list__button {
     min-height: 54px;
@@ -54,9 +61,14 @@
 }
 
 @media screen and (max-width: 400px) {
-  .news-card-list__cards {
+  .news-card-list{
     display: flex;
     flex-direction: column;
     align-items: center;
   }
+  /* .news-card-list__cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  } */
 }

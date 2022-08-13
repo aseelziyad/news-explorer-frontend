@@ -5,7 +5,6 @@ const SearchResults = ({ resultSearch }) => {
     <div className='search-results'>
       <h2 className='search-results__title'>Search results</h2>
       <ul className='news-card-list'>
-        <li className='news-card-list__cards'>
           {resultSearch.length > 0 &&
             resultSearch.map((newsCard) => (
               <NewsCard key={newsCard.id}
@@ -17,7 +16,6 @@ const SearchResults = ({ resultSearch }) => {
                 cardSource={newsCard.cardSource}
               />
             ))}
-        </li>
       </ul>
       <button className='search-results__button'>Show more</button>
     </div>
