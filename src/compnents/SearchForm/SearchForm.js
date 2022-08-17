@@ -1,23 +1,16 @@
 import React from 'react';
-import { useState } from 'react';
-import Preloader from '../Preloader/Preloader';
 
+const SearchForm = (props) => {
+  const { onClick } = props;
 
-export default function SearchForm() {
-  // const [search, setSearch] = useState({ name: '', className: '' });
-
-   const handleSearchClick = (event) => {
-     event.preventDefault();
-    //  setSearch(true);
-   };
-
-  // const handleChange = (event) => {
-  //   setSearch(event.target.value);
-  // };
   
+  const handleClick = (event) => {
+    event.preventDefault();
+    onClick(event);
+  };
+
   return (
     <form className='search-form'>
-      {/* <div className='search-form__container'> */}
       <input
         type='text'
         className='search-form__input'
@@ -26,14 +19,11 @@ export default function SearchForm() {
         placeholder=' Enter topic'
         required
       />
-      <button
-        type='submit'
-        className='search-form__button'
-        onSubmit={handleSearchClick}
-      >
+      <button type='submit' className='search-form__button' onClick={onClick}>
         Search
       </button>
-      <preloader />
     </form>
   );
-}
+};
+
+export default SearchForm;

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PopupWithForm from '../PopupWithForm/PopupWithForm';
 const PopupSignup = (props) => {
   const { isOpen, onClose, switchPopups, onSubmit } = props;
@@ -15,7 +15,7 @@ const PopupSignup = (props) => {
       onSubmit={handleSubmit}
       buttonText='Sign up'
       title='Sign up'
-      name='SignUp'
+      name='sign_up'
       switchPopups={switchPopups}
     >
       <label className='popup__field'>
@@ -29,7 +29,7 @@ const PopupSignup = (props) => {
           required
         />
       </label>
-      <span className='popup__error' id='input-email-error'></span>
+      <span id='input-email-error' className='popup__error'></span>
       <label className='popup__field'>
         Password
         <input
@@ -41,7 +41,7 @@ const PopupSignup = (props) => {
           required
         />
       </label>
-      <span className='popup__error' id='input-password-error'></span>
+      <span id='input-password-error' className='popup__error'></span>
       <label className='popup__field'>
         Username
         <input
@@ -53,7 +53,7 @@ const PopupSignup = (props) => {
           required
         />
       </label>
-      <span className='popup__error' id='input-username-error'></span>
+      <span id='input-username-error' className='popup__error'></span>
       <button type='submit' className='popup__submit-button'>
         Sign up
       </button>

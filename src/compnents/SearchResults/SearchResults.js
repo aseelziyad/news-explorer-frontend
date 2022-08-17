@@ -1,12 +1,25 @@
-import NewsCardList from '../NewsCardList/NewCardList';
-import PreloaderNotFound from '../PreloaderNotFound/PreloaderNotFound';
+import NewsCard from '../NewsCard/NewsCard';
 
-export default function SearchResults() {
+const SearchResults = ({ resultSearch }) => {
   return (
     <div className='search-results'>
       <h2 className='search-results__title'>Search results</h2>
-      <NewsCardList />
+      <ul className='news-card-list'>
+          {resultSearch.length > 0 &&
+            resultSearch.map((newsCard) => (
+              <NewsCard key={newsCard.id}
+                cardImage={newsCard.cardImage}
+                cardKeyword={newsCard.cardKeyword}
+                cardDate={newsCard.cardDate}
+                cardTitle={newsCard.cardTitle}
+                cardText={newsCard.cardText}
+                cardSource={newsCard.cardSource}
+              />
+            ))}
+      </ul>
       <button className='search-results__button'>Show more</button>
     </div>
   );
-}
+};
+
+export default SearchResults;

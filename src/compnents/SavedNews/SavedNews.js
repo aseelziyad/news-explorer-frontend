@@ -1,12 +1,25 @@
 import React from 'react';
 import SavedNewsHeader from '../SavedNewsHeader/SavedNewsHeader';
-import About from '../About/About';
-import NewsCardList from '../NewsCardList/NewCardList';
+import NewsCardsList from '../NewsCardList/NewsCardList';
+import NewsCard from '../NewsCard/NewsCard';
 export default function SavedNews(props) {
+  const resultSearch = NewsCardsList;
   return (
-    <section className="saved-news">
+    <section className='saved-news'>
       <SavedNewsHeader />
-      <NewsCardList />
+      <ul className='news-card-list'>
+          {resultSearch.length > 0 &&
+            resultSearch.map((newsCard) => (
+              <NewsCard key={newsCard.id}
+                cardImage={newsCard.cardImage}
+                cardKeyword={newsCard.cardKeyword}
+                cardDate={newsCard.cardDate}
+                cardTitle={newsCard.cardTitle}
+                cardText={newsCard.cardText}
+                cardSource={newsCard.cardSource}
+              />
+            ))}
+      </ul>
     </section>
   );
 }

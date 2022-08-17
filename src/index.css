@@ -10,7 +10,7 @@
 @import url(../src/compnents/About/about.css);
 
 @import url(../src/compnents/Preloader/preloader.css);
-@import url(../src/compnents/PreloaderNotFound/preloadernotfound.css);
+@import url(../src/compnents/ResultsNotFound/ResultsNotFound.css);
 
 @import url(../src/compnents/Main/Main.css);
 @import url(../src/compnents/SavedNewsHeader/SavedNewsHeader.css);
@@ -22,6 +22,4 @@
 
 @import url(../src/compnents/PopupMenu/popupMenu.css);
 @import url(../src/compnents/PopupRegisterSuccess/PopupRegisterSuccess.css);
-/* @import url(../src/compnents/popup/__sign-image/popup__sign-image.css);
-@import url(../src/compnents/popup/__sign-message/popup__sign-message.css); */
 

@@ -18,12 +18,12 @@ export default function header(props) {
             <header
                 className={`header ${pathname === '/saved-news' && 'header_saved'}`}
             >
-                <h2
+                <h1
                     className={`header__title ${pathname === '/saved-news' && 'header__title-saved'
                         }`}
                 >
                     NewsExplorer
-                </h2>
+                </h1>
                 <Navigation
                     onLoginClick={onLoginClick}
                     onMenuClick={onMenuClick}

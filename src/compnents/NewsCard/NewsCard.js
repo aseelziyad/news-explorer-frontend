@@ -14,6 +14,7 @@ export default function NewsCard({
   cardText,
   cardSource,
   cardKeyword,
+  isLoggedIn,
 }) {
   const [isVisiable, setIsVisiable] = useState(false);
   const [isBookmarked, setIsBookmarked] = useState(false);
@@ -24,20 +25,15 @@ export default function NewsCard({
   }
 
   return (
-    <div className='newsCard'>
-      <img className='newsCard__image' src={cardImage} alt={cardTitle} />
+    <li className='news-card'>
+      <img className='news-card__image' src={cardImage} alt={cardTitle} />
       {pathname === '/saved-news' && (
-        <p className='newsCard__keyword'>{cardKeyword}</p>
+        <p className='news-card__keyword'>{cardKeyword}</p>
       )}
-      
-      {isVisiable && (
-        <p className='newsCard__message'>
-          {pathname === '/' ? 'Sign in to save articles' : 'Remove from saved'}
-        </p>
-      )}
+
       {pathname === '/' ? (
         <button
-          className='newsCard__button'
+          className='news-card__button'
           onMouseEnter={() => setIsVisiable(true)}
           onMouseLeave={() => setIsVisiable(false)}
           onClick={handleBookmarked}
@@ -50,19 +46,25 @@ export default function NewsCard({
         </button>
       ) : (
         <button
-          className='newsCard__button'
+          className='news-card__button'
           onMouseEnter={() => setIsVisiable(true)}
           onMouseLeave={() => setIsVisiable(false)}
         >
           <img src={isVisiable ? trashBold : trash} alt='bookmark' />
         </button>
       )}
-      <p className='newsCard__date'>{cardDate}</p>
-      <h3 className='newsCard__title'>{cardTitle}</h3>
-      <p className='newsCard__text'>{cardText}</p>
-      <a herf='/' target='_blank' className='newsCard__source'>
+
+      {isVisiable && (
+        <p className='news-card__message'>
+          {pathname === '/' ? 'Sign in to save articles' : 'Remove from saved'}
+        </p>
+      )}
+      <p className='news-card__date'>{cardDate}</p>
+      <h3 className='news-card__title'>{cardTitle}</h3>
+      <p className='news-card__text'>{cardText}</p>
+      <a herf='/' target='_blank' className='news-card__source'>
         {cardSource}
-      </a>
-    </div>
+        </a>
+    </li>
   );
 }

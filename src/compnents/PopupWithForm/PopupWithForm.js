@@ -22,7 +22,7 @@ export default function PopupWithForm(props) {
         <form
           action='#'
           onSubmit={onSubmit}
-          className={`popup__form popup__form_type${name}`}
+          className={`popup__form popup__form_type_${name}`}
           name={name}
         >
           {children}
