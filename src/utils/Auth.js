@@ -1,4 +1,4 @@
-export const BASE_URL = 'http://localhost:3000';
+export const BASE_URL = 'https://api.news-explorer-az.students.nomoredomainssbs.ru';
 
 const getRespose = (res) => {
   if (res.ok) {
@@ -28,6 +28,7 @@ export const authorize = (user) => {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*',
     },
     body: JSON.stringify({
       email: user.email,
@@ -52,6 +53,7 @@ export const checkToken = (token) => {
       method: 'GET',
       headers: {
         Accept: 'application/json',
+        'Access-Control-Allow-Origin': '*',
         'Content-Type': 'application/json',
         Authorization: `Bearer ${token}`,
       },

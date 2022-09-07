@@ -18,21 +18,33 @@ class MainApi extends React.Component {
   getCurrentUser() {
     const authorization = `Bearer ${localStorage.getItem('jwt')}`;
     return fetch(`${this._baseUrl}/users/me`, {
-      headers: { ...this._headers, Authorization: authorization },
+      headers: {
+        ...this._headers,
+        Authorization: authorization,
+        'Access-Control-Allow-Origin': '*',
+      },
     }).then(this._getResponseData);
   }
 
   getSavedArticles() {
     const authorization = `Bearer ${localStorage.getItem('jwt')}`;
     return fetch(`${this._baseUrl}/articles`, {
-      headers: { ...this._headers, Authorization: authorization },
+      headers: {
+        ...this._headers,
+        Authorization: authorization,
+        'Access-Control-Allow-Origin': '*',
+      },
     }).then(this._getResponseData);
   }
 
   saveArticles(newsCard) {
     const authorization = `Bearer ${localStorage.getItem('jwt')}`;
     return fetch(`${this._baseUrl}/articles`, {
-      headers: { ...this._headers, Authorization: authorization },
+      headers: {
+        ...this._headers,
+        Authorization: authorization,
+        'Access-Control-Allow-Origin': '*',
+      },
       method: 'post',
       body: JSON.stringify({
         keyword: localStorage.getItem('currentKeyword'),
@@ -49,17 +61,22 @@ class MainApi extends React.Component {
   deleteArticle(id) {
     const authorization = `Bearer ${localStorage.getItem('jwt')}`;
     return fetch(`${this._baseUrl}/articles/${id}`, {
-      headers: { ...this._headers, Authorization: authorization },
+      headers: {
+        ...this._headers,
+        Authorization: authorization,
+        'Access-Control-Allow-Origin': '*',
+      },
       method: 'DELETE',
     }).then(this._getResponseData);
   }
 }
 const api = new MainApi({
-  // baseUrl: 'https://api.news-explorer-aseel.students.nomoredomainssbs.ru',
-  baseUrl: 'http://localhost:3000',
+  baseUrl: 'https://api.news-explorer-az.students.nomoredomainssbs.ru',
+  // baseUrl: 'http://localhost:3000',
   headers: {
     'Content-Type': 'application/json',
     Accept: 'application/json',
+    'Access-Control-Allow-Origin': '*',
   },
 });
 export default api;
