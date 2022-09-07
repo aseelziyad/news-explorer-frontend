@@ -1,29 +1,31 @@
 import React from 'react';
-// import { CurrentUserContext } from '../../contexts/CurrentUserContext';
+import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import logoutIcon from '../../images/sign-out-white.svg';
 import logoutIconBlack from '../../images/sign-out-black.svg';
 import menu from '../../images/menu.svg';
 import menuBlack from '../../images/menu-black.svg';
-
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 
-export default function Navigation(props){
-    const {
-      onLoginClick,
-      onMenuClick,
-      isMenuOpen,
-      isLoggedIn,
-      setIsLoggedIn,
-    } = props;
-const { pathname } = useLocation();
+export default function Navigation(props) {
+  const {
+    onLoginClick,
+    onMenuClick,
+    isMenuOpen,
+    isLoggedIn,
+    onLogoutClick,
+    name,
+  } = props;
+  // const currentUser = React.useContext(CurrentUserContext);
+  const { pathname } = useLocation();
   const navigate = useNavigate();
 
   function handleNavigationButton() {
     if (!isLoggedIn) {
-      onLoginClick()
+      onLoginClick();
       navigate('/');
     } else {
-      setIsLoggedIn(false);
+      onLogoutClick();
+      navigate('/');
     }
   }
 
@@ -67,7 +69,7 @@ const { pathname } = useLocation();
                 pathname === '/saved-news' && 'navigation__button-text_saved'
               }`}
             >
-              {'Elise'}
+              {localStorage.getItem('name')}
             </p>
             <img
               className='navigation__button-logo'

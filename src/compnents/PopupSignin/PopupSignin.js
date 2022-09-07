@@ -1,13 +1,32 @@
-import React from 'react';
-import PopupWithForm from '../PopupWithForm/PopupWithForm'
+import React, { useState } from 'react';
+import { useFormWithValidation } from '../../hooks/useFormWithValidation';
+import PopupWithForm from '../PopupWithForm/PopupWithForm';
 
 const PopupSignin = (props) => {
   const { isOpen, onClose, onSubmit, switchPopups } = props;
+    const { values, handleChange, errors, isValid, resetForm } = useFormWithValidation();
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    onSubmit(event);
-  };
+    // const [values, setValues] = useState({});
+    // const handleChange = (event) => {
+    //   setValues({ ...values, [event.target.name]: event.target.value });
+    // };
+
+    const handleSubmit = (event) => {
+      event.preventDefault();
+      if (isValid) {
+        onSubmit({ email: values.email, password: values.password });
+        resetForm();
+      }
+    };
+
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
+  //   if (isValid) {
+  //     onSubmit(values)
+  //     resetForm();
+  //   }
+  // }
+
 
   return (
     <PopupWithForm
@@ -26,10 +45,12 @@ const PopupSignin = (props) => {
         name='email'
         id='inputemail'
         placeholder='Enter email'
+        value={values.email || ''}
+        onChange={handleChange}
         required
       />
-      <span id='input-email-error' className='popup__error'>
-        invalid email address
+      <span id='input-email-error' className='popup__error_visiable'>
+        {errors.email}
       </span>
       <label className='popup__field'>Password</label>
       <input
@@ -38,10 +59,21 @@ const PopupSignin = (props) => {
         name='password'
         id='inputpassword'
         placeholder='Enter password'
+        value={values.password || ''}
+        onChange={handleChange}
+        minLength={6}
         required
       />
-      <span id='input-password-error' className='popup__error'></span>
-      <button type='submit' className='popup__submit-button'>
+      <span id='input-password-error' className='popup__error_visiable'>
+        {errors.password}
+      </span>
+      {/* <button type='submit' className='popup__submit-button'> */}
+      <button
+        type='submit'
+        className={`popup__submit-button ${
+          isValid ? '' : 'popup__submit-button_disabled'
+        }`}
+      >
         Sign in
       </button>
       <p className='popup__text'>

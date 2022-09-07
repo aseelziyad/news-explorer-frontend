@@ -19,7 +19,7 @@ const PopupRegistered = (props) => {
           onSubmit={handleRedircet}
         >
           <span className='popup__link-success' onClick={switchPopups}>
-            Sign up
+            Sign in
           </span>
         </PopupWithForm>
   );

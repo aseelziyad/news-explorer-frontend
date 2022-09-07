@@ -11,6 +11,7 @@
 
 @import url(../src/compnents/Preloader/preloader.css);
 @import url(../src/compnents/ResultsNotFound/ResultsNotFound.css);
+@import url(../src/compnents/ResultsError/ResultsError.css);
 
 @import url(../src/compnents/Main/Main.css);
 @import url(../src/compnents/SavedNewsHeader/SavedNewsHeader.css);

@@ -1,9 +1,12 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
 export default function PopupMenu(props) {
   const { isOpen, onClose, isLoggedIn, onLoginClick, onLogoutClick } = props;
+ const currentUser = React.useContext(CurrentUserContext);
+//  const [name, setName] = useState('');
   const { pathname } = useLocation();
 
   return (
@@ -43,9 +46,9 @@ export default function PopupMenu(props) {
           className='popup__menu-submit-button'
           onClick={onLogoutClick}
         >
-          Elise
+          {currentUser.name}
         </button>
       )}
     </div>
-  );};
- 
+  );
+}

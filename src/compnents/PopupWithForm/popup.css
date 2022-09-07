@@ -92,6 +92,7 @@ max-width: 430px;
   visibility: visible;
   opacity: 1;
   pointer-events: all;
+  z-index: 10;
 }
 
 .popup__submit-button {
@@ -130,6 +131,7 @@ max-width: 430px;
   font-size: 18px;
   font-weight: 500;
   line-height: 24px;
+  cursor: default;
 }
 
 .popup__input_type_error {
@@ -155,7 +157,7 @@ max-width: 430px;
   padding: 9px 0 9px 0;
 }
 
-.popup__error {
+/* .popup__error {
   visibility: hidden;
   display: none;
   max-width: 164px;
@@ -164,11 +166,17 @@ max-width: 430px;
   line-height: 15px;
   color: #ff0000;
   margin-top: 3px;
-}
+} */
 
 .popup__error_visiable {
   visibility: visible;
   display: flex;
+    max-width: 164px;
+  font-family: 'Robto', sans-serif;
+  font-size: 12px;
+  line-height: 15px;
+  color: #ff0000;
+  margin-top: 3px;
 }
 
 .popup__close-button {
