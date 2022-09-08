@@ -4,6 +4,8 @@ import { useLocation } from 'react-router-dom';
 import Navigation from '../Navigation/Navigation';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
+
+
 export default function header(props) {
   const {
     onLoginClick,
@@ -11,7 +13,6 @@ export default function header(props) {
     isMenuOpen,
     isLoggedIn,
     onLogoutClick,
-    name,
   } = props;
   const { pathname } = useLocation();
   const currentUser = React.useContext(CurrentUserContext);

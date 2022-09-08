@@ -1,7 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import bookmark from '../../images/Bkmark.svg';
 import bookmarkFilled from '../../images/flag-icon-filled.svg';
 import trash from '../../images/trash.svg';

@@ -2,24 +2,9 @@ import React, { useState } from 'react';
 import { useFormWithValidation } from '../../hooks/useFormWithValidation';
 import PopupWithForm from '../PopupWithForm/PopupWithForm';
 const PopupSignup = (props) => {
-  const { isOpen, onClose, switchPopups, onSubmit, name } = props;
+  const { isOpen, onClose, switchPopups, onSubmit} = props;
   const { values, handleChange, errors, isValid, resetForm} = useFormWithValidation();
   
-  // const handleChange = (event) => {
-  //   setValues({ ...values, [event.target.name]: event.target.value });
-  // };
-
-    // const handleSubmit = (event) => {
-    //   event.preventDefault();
-    //   if (isValid) {
-    //     onSubmit(values);
-    //     resetForm();
-    //   }
-    // };
-
-      // const [values, setValues] = useState({});
-
-
       const handleSubmit = (event) => {
         event.preventDefault();
         if (isValid) {
@@ -28,10 +13,11 @@ const PopupSignup = (props) => {
             password: values.password,
             name: values.name,
           });
-          resetForm();
         }
       };
-
+   React.useEffect(() => {
+     resetForm();
+   }, [isOpen]);
 
   return (
     <PopupWithForm

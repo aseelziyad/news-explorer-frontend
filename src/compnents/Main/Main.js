@@ -36,51 +36,48 @@ export default function Main() {
     localStorage.setItem('currentArticlesCount', articlesCount);
   }, [articlesCount]);
 
-
   function handleSearchClick(event) {
     event.preventDefault();
-  const currentKeyword = searchInputRef.current.value;
-  setKeyword(currentKeyword);
+    const currentKeyword = searchInputRef.current.value;
+    setKeyword(currentKeyword);
     setIsLoading(true);
 
     // always clear artcles on click and error message
     setSearchArticles([]);
     setArticlesCount(3);
     setSearchErrorMessage('');
+    setKeyword(currentKeyword);
+    // if (currentKeyword === '') {
+    //   setSearchInput('   Please enter a keyword');
+    //   setIsLoading(false);
+    //   setIsNotFound(true);
+    //   setSearchArticles([]);
+    //   return;
+    // }
+    newsApi
+      .getSearchArticles(currentKeyword)
 
-    if (currentKeyword === '') {
-      setSearchInput('   Please enter a keyword');
-      setIsLoading(false);
-      setIsNotFound(true);
-      setSearchArticles([]);
-      return;
-    } 
-      setKeyword(currentKeyword);
+      .then((res) => {
+        setIsLoading(false);
 
-      newsApi
-        .getSearchArticles(currentKeyword)
-
-        .then((res) => {
-          setIsLoading(false);
-
-          const searchResult = res.articles;
-          if (searchResult.length !== 0) {
-            setIsSearchResult(true);
-            setIsNotFound(false);
-            setSearchArticles(searchResult);
-            return;
-          } else {
-            setIsSearchResult(false);
-            setIsNotFound(true);
-          }
-        })
-        .catch(() => {
-          setIsNotFound(true);
+        const searchResult = res.articles;
+        if (searchResult.length !== 0) {
+          setIsSearchResult(true);
+          setIsNotFound(false);
+          setSearchArticles(searchResult);
+          return;
+        } else {
           setIsSearchResult(false);
-          setSearchErrorMessage(
-            'Sorry, something went wrong during the request. There may be a connection issue or the server may be down. Please try again later.'
-          );
-        });
+          setIsNotFound(true);
+        }
+      })
+      .catch(() => {
+        setIsNotFound(true);
+        setIsSearchResult(false);
+        setSearchErrorMessage(
+          'Sorry, something went wrong during the request. There may be a connection issue or the server may be down. Please try again later.'
+        );
+      });
   }
 
   return (
@@ -93,7 +90,7 @@ export default function Main() {
             account.
           </p>
         </div>
-        <SearchForm onClick={handleSearchClick}>
+        <SearchForm onSubmit={handleSearchClick}>
           <input
             ref={searchInputRef}
             type='text'

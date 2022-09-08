@@ -1,10 +1,10 @@
 import React from 'react';
-import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import logoutIcon from '../../images/sign-out-white.svg';
 import logoutIconBlack from '../../images/sign-out-black.svg';
 import menu from '../../images/menu.svg';
 import menuBlack from '../../images/menu-black.svg';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { useFormWithValidation } from '../../hooks/useFormWithValidation';
 
 export default function Navigation(props) {
   const {
@@ -13,9 +13,7 @@ export default function Navigation(props) {
     isMenuOpen,
     isLoggedIn,
     onLogoutClick,
-    name,
   } = props;
-  // const currentUser = React.useContext(CurrentUserContext);
   const { pathname } = useLocation();
   const navigate = useNavigate();
 

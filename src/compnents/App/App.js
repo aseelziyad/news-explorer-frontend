@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate, Route, Routes, Navigate } from 'react-router-dom';
+import { useNavigate, Route, Routes } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
@@ -30,19 +30,12 @@ export default function App() {
     password: '',
     name: '',
   });
-  const formValidation = useFormWithValidation({
-    password: '',
-    email: '',
-    username: '',
-  });
 
   function handleRegister({ email, password, name }) {
     register({ email, password, name })
       .then((res) => {
-        // setValues(res.user);
-        setIsRegistered(true);
-        formValidation.resetForm();
-        setIsRegisterSuccessPopupOpen(true);
+          setIsRegistered(true);
+          setIsRegisterSuccessPopupOpen(true);
       })
       .catch((err) => {
         setIsRegistered(false);
@@ -70,19 +63,15 @@ export default function App() {
     authorize({ email, password })
       .then((data) => {
         if (data && data.token) {
-          // setCurrentUser(user);
-          // setValues()
           localStorage.setItem('jwt', data.token);
           checkIsLoggedIn();
           setcurrentUserInfo();
-          formValidation.resetForm();
           setIsLoginPopupOpen(false);
         } else {
           throw new Error('No token recieved');
         }
       })
       .catch((err) => {
-        console.log(err);
       });
   }
 

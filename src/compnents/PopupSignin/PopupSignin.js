@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import { useFormWithValidation } from '../../hooks/useFormWithValidation';
 import PopupWithForm from '../PopupWithForm/PopupWithForm';
 
@@ -6,27 +6,17 @@ const PopupSignin = (props) => {
   const { isOpen, onClose, onSubmit, switchPopups } = props;
     const { values, handleChange, errors, isValid, resetForm } = useFormWithValidation();
 
-    // const [values, setValues] = useState({});
-    // const handleChange = (event) => {
-    //   setValues({ ...values, [event.target.name]: event.target.value });
-    // };
 
     const handleSubmit = (event) => {
       event.preventDefault();
       if (isValid) {
         onSubmit({ email: values.email, password: values.password });
-        resetForm();
       }
     };
 
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   if (isValid) {
-  //     onSubmit(values)
-  //     resetForm();
-  //   }
-  // }
-
+   React.useEffect(() => {
+     resetForm();
+   }, [isOpen]);
 
   return (
     <PopupWithForm
@@ -67,7 +57,6 @@ const PopupSignin = (props) => {
       <span id='input-password-error' className='popup__error_visiable'>
         {errors.password}
       </span>
-      {/* <button type='submit' className='popup__submit-button'> */}
       <button
         type='submit'
         className={`popup__submit-button ${
