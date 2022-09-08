@@ -2,7 +2,13 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Available websites
+https://news-explorer-az.students.nomoredomainssbs.ru
+https://www.news-explorer-az.students.nomoredomainssbs.ru
+https://api.news-explorer-az.students.nomoredomainssbs.ru
+
+Backend
+https://github.com/aseelziyad/news-explorer-api
 
 In the project directory, you can run:
 
