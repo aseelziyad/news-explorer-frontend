@@ -59,7 +59,7 @@ export default function NewsCard({
   function handleCardDelete(event) {
     setIsBookmarked(true);
     const isLoggedIn = localStorage.getItem('jwt') !== null;
-    if (isLoggedIn && pathname === '/saved-news') {
+    if (isLoggedIn && pathname === '/saved-news' && isBookmarked === false) {
       api
         .deleteArticle(event.currentTarget.parentNode.id)
         .then((res) => {
@@ -79,21 +79,35 @@ export default function NewsCard({
         });
     }
   }
-  function handleCardSave() {
+
+  const saveArticle = async (articleData) => {
+    return await api.saveArticles(articleData);
+  };
+
+  function handleCardSave(event) {
     const isLoggedIn = localStorage.getItem('jwt') !== null;
     if (isLoggedIn && pathname === '/' && isBookmarked === false) {
+      console.log('saving articles');
+      const articleData = {
+        keyword: localStorage.getItem('currentKeyword'),
+        title: cardTitle,
+        text: cardDescription,
+        date: cardPublishedAt,
+        source: cardSource,
+        link: cardUrl,
+        image: cardUrlToImage,
+      };
+      saveArticle(articleData).then((newArticle) => {
+        setIsBookmarked(true);
+        setCurrentId(newArticle.data._id);
+      });
+    } else if (isLoggedIn && pathname === '/' && isBookmarked === true) {
+      console.log('calling delete article');
       api
-        .saveArticles({
-          keyword: localStorage.getItem('currentKeyword'),
-          title: cardTitle,
-          text: cardDescription,
-          date: cardPublishedAt,
-          source: cardSource,
-          link: cardUrl,
-          image: cardUrlToImage,
-        })
+        .deleteArticle(event.currentTarget.parentNode.id)
         .then((res) => {
-          setIsBookmarked(true);
+          console.log(`deletingArticle = ${currentId}`);
+          setIsBookmarked(false);
         })
         .catch((err) => {
           console.log(err);
@@ -102,7 +116,7 @@ export default function NewsCard({
   }
 
   return (
-    <li className='news-card' id={_id}>
+    <li className='news-card' id={_id || currentId}>
       <img className='news-card__image' src={cardUrlToImage} alt={cardTitle} />
       {pathname === '/saved-news' && (
         <p className='news-card__keyword'>{cardKeyword}</p>
