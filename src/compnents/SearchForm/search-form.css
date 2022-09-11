@@ -23,6 +23,7 @@
   border-radius: 100px;
   width: 540px;
   height: 64px;
+  padding-left: 15px;
 }
 .search-form__input:focus {
   outline: 0;

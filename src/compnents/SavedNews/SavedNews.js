@@ -53,7 +53,8 @@ export default function SavedNews({ getSavedArticles }) {
     <section className='saved-news'>
       <SavedNewsHeader savedArticles={savedArticles}>
         <h3 className='saved-news-header__user-articles'>
-          {currentUser.name}, you have {savedArticles.length} saved articles.
+          {localStorage.getItem('name')}, you have {savedArticles.length} saved
+          articles.
         </h3>
         <h4 className='saved-news-header__keywords'>
           By keywords: {''}

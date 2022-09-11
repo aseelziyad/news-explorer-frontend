@@ -64,7 +64,8 @@ export default function App() {
       .then((data) => {
         if (data && data.token) {
           localStorage.setItem('jwt', data.token);
-          checkIsLoggedIn();
+          // checkIsLoggedIn();
+          setIsLoggedIn(true);
           setcurrentUserInfo();
           setIsLoginPopupOpen(false);
         } else {
@@ -79,7 +80,6 @@ export default function App() {
     setIsLoggedIn(false);
     localStorage.removeItem('jwt');
     localStorage.removeItem('name');
-
     setValues(null);
     setCurrentUser({});
     closeAllPopups();
@@ -137,22 +137,37 @@ export default function App() {
     setIsLoginPopupOpen(true);
   }
 
-  function checkIsLoggedIn() {
-    const token = localStorage.getItem('jwt');
-    if (!token) {
-      setIsLoggedIn(false);
-    }
-    checkToken(token)
-      .then((user) => {
-        if (user) {
-          setIsLoggedIn(true);
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-        setIsLoggedIn(false);
-      });
-  }
+  useEffect(() => {
+       const token = localStorage.getItem('jwt');
+        token &&
+       checkToken(token)
+         .then((user) => {
+           if (user) {
+             setIsLoggedIn(true);
+           }
+         })
+         .catch((err) => {
+           console.log(err);
+           setIsLoggedIn(false);
+         });
+  }, [])
+  
+  // function checkIsLoggedIn() {
+  //   const token = localStorage.getItem('jwt');
+  //   if (!token) {
+  //     setIsLoggedIn(false);
+  //   }
+  //   checkToken(token)
+  //     .then((user) => {
+  //       if (user) {
+  //         setIsLoggedIn(true);
+  //       }
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //       setIsLoggedIn(false);
+  //     });
+  // }
 
   return (
     <div className='App'>
